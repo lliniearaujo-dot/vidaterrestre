@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vida Terrestre | José Antônio Gonçalves Júnior</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#f6f9f4;color:#1a1a1a;overflow-x:hidden}
+a{text-decoration:none}
+
+/* TOPO FIXO */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,59,30,.95);backdrop-filter:blur(10px);padding:14px 25px;display:flex;justify-content:space-between;align-items:center;color:white}
+.navbar b{font-size:19px;letter-spacing:1px}
+.navbar b span{color:#ff9800}
+.navbar div a{color:white;margin:0 10px;font-size:13px;font-weight:600}
+.navbar div a:hover{color:#ff9800}
+
+/* CAPA HERO */
+.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&q=80');background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;padding:100px 20px 60px}
+.hero small{background:#ff9800;padding:8px 18px;border-radius:30px;font-weight:700;letter-spacing:1px;font-size:12px}
+.hero h1{font-family:'Playfair Display',serif;font-size:64px;line-height:1.05;margin:20px 0}
+.hero h1 em{color:#7ddb8a;font-style:normal}
+.hero p{max-width:650px;font-size:18px;line-height:1.6;opacity:.95}
+.btns{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{padding:15px 28px;border-radius:50px;font-weight:700;border:none;cursor:pointer;font-size:15px;transition:.3s}
+.btn-laranja{background:#ff9800;color:white;box-shadow:0 10px 25px rgba(255,152,0,.4)}
+.btn-branco{background:white;color:#0d3b1e}
+.btn:hover{transform:translateY(-3px) scale(1.02)}
+.stats{display:flex;gap:20px;margin-top:45px;flex-wrap:wrap;justify-content:center}
+.stat{background:rgba(255,255,255,.15);backdrop-filter:blur(10px);padding:16px 22px;border-radius:18px;text-align:center;border:1px solid rgba(255,255,255,.2)}
+.stat b{font-size:26px;display:block;color:#ffcc80}
+.stat span{font-size:12px;opacity:.9}
+
+/* CURADOR GRANDE */
+.curador{max-width:1100px;margin:-50px auto 30px;background:white;border-radius:28px;padding:30px;display:flex;gap:25px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.15);position:relative;z-index:10;flex-wrap:wrap}
+.foto{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,#0d3b1e,#4caf50,#ff9800);display:flex;align-items:center;justify-content:center;font-size:65px;color:white;border:6px solid #e8f5e9;flex-shrink:0}
+.curador h2{font-size:28px;color:#0d3b1e}
+.curador h2 span{color:#ff9800}
+.curador p{color:#555;line-height:1.6;margin-top:8px}
+.tags{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:#e8f5e9;color:#1a7a3a;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:700}
+.tag.laranja{background:#fff3e0;color:#e65100}
+
+/* MENU GIGANTE */
+.menu-section{max-width:1150px;margin:30px auto;padding:0 20px;text-align:center}
+.menu-section h2{font-size:32px;color:#0d3b1e}
+.menu-section p{color:#777;margin:8px 0 20px}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.card-btn{padding:22px 15px;border-radius:20px;border:none;cursor:pointer;color:white;text-align:left;transition:.25s;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.card-btn:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(0,0,0,.2)}
+.card-btn span{font-size:32px;display:block;margin-bottom:8px}
+.card-btn b{font-size:16px;display:block}
+.card-btn small{font-size:12px;opacity:.9}
+.g1{background:linear-gradient(135deg,#1b5e20,#66bb6a)} .g2{background:linear-gradient(135deg,#ef6c00,#ffb74d)}
+.g3{background:linear-gradient(135deg,#1565c0,#64b5f6)} .g4{background:linear-gradient(135deg,#6a1b9a,#ba68c8)}
+.g5{background:linear-gradient(135deg,#b71c1c,#ef5350)} .g6{background:linear-gradient(135deg,#00695c,#4db6ac)}
+.g7{background:linear-gradient(135deg,#5d4037,#a1887f)} .g8{background:linear-gradient(135deg,#263238,#78909c)}
+.g9{background:linear-gradient(135deg,#f57f17,#ffca28)} .g10{background:linear-gradient(135deg,#ad1457,#f06292)}
+.g11{background:linear-gradient(135deg,#0d3b1e,#2e7d32)} .g12{background:linear-gradient(135deg,#311b92,#7c4dff)}
+
+/* CONTEÚDO */
+.container{max-width:1000px;margin:20px auto;padding:0 20px}
+section.pagina{display:none;background:white;border-radius:28px;padding:40px;box-shadow:0 10px 30px rgba(0,0,0,.08);margin-bottom:30px}
+section.pagina.ativa{display:block;animation:fade .5s}
+@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+section.pagina h2{font-size:34px;color:#0d3b1e;margin-bottom:12px}
+section.pagina h3{color:#ef6c00;margin:25px 0 10px;font-size:20px}
+section.pagina p{line-height:1.85;font-size:16px;color:#333;margin-bottom:12px}
+.img-banner{width:100%;height:280px;object-fit:cover;border-radius:20px;margin:15px 0}
+.box-arg{background:linear-gradient(135deg,#fff8e1,#fff3e0);border-left:7px solid #ff9800;padding:20px;border-radius:16px;margin:20px 0}
+.box-arg b{color:#e65100;font-size:17px}
+.box-dado{background:#e8f5e9;border-left:7px solid #1a7a3a;padding:20px;border-radius:16px;margin:20px 0}
+.box-alerta{background:#ffebee;border-left:7px solid #c62828;padding:20px;border-radius:16px;margin:20px 0}
+.frase-grande{font-family:'Playfair Display',serif;font-size:26px;text-align:center;color:#0d3b1e;margin:30px 0;line-height:1.4}
+.lista-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin:15px 0}
+.mini{background:#f8f9f6;padding:20px;border-radius:18px;border:1px solid #eee}
+.mini b{color:#0d3b1e}
+.btn-voltar{background:#111;color:white;padding:12px 24px;border:none;border-radius:30px;cursor:pointer;margin-top:15px;font-weight:600}
+.btn-acao2{background:#ff9800;color:white;padding:13px 26px;border:none;border-radius:30px;cursor:pointer;font-weight:700}
+.timeline{border-left:4px solid #4caf50;padding-left:20px;margin:20px 0}
+.timeline div{margin-bottom:18px;position:relative}
+.timeline div:before{content:"●";color:#ff9800;position:absolute;left:-30px;top:0;font-size:20px}
+
+/* GALERIA */
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:20px 0}
+.galeria img{width:100%;height:170px;object-fit:cover;border-radius:16px}
+
+/* RODAPÉ */
+footer{background:#0d3b1e;color:white;padding:50px 20px;text-align:center;margin-top:40px}
+footer h3{font-size:26px}
+footer p{opacity:.85;margin-top:10px;line-height:1.6}
+@media(max-width:700px){.hero h1{font-size:38px}.navbar div{display:none}.curador{margin:20px}}
+</style>
+</head>
+<body>
+
+<div class="navbar"><b>🌍 VIDA <span>TERRESTRE</span></b><div><a href="#" onclick="mostrar('inicio')">Início</a><a href="#" onclick="mostrar('curador')">Curador</a><a href="#" onclick="mostrar('florestas')">Florestas</a><a href="#" onclick="mostrar('solucao')">Soluções</a><a href="#" onclick="mostrar('pitch')">Pitch</a></div></div>
+
+<!-- CAPA -->
+<div class="hero">
+  <small>✦ ODS 15 • PROJETO ESCOLAR • ESCOLA MARIETA SOARES TEIXEIRA ✦</small>
+  <h1>A TERRA ESTÁ<br>PEDINDO <em>AJUDA.</em><br>VOCÊ VAI OUVIR?</h1>
+  <p>Um site criado para provar que cuidar da vida terrestre não é favor para a natureza. É a decisão mais inteligente para a nossa própria sobrevivência.</p>
+  <div class="btns">
+    <button class="btn btn-laranja" onclick="mostrar('inicio')">Explorar o Site →</button>
+    <button class="btn btn-branco" onclick="mostrar('curador')">Conhecer o Curador</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>31%</b><span>da Terra é floresta</span></div>
+    <div class="stat"><b>80%</b><span>dos animais vivem nela</span></div>
+    <div class="stat"><b>1º</b><span>Brasil em biodiversidade</span></div>
+    <div class="stat"><b>100 anos</b><span>p/ formar 1cm de solo</span></div>
+  </div>
+</div>
+
+<!-- CURADOR -->
+<div class="curador">
+  <div class="foto">👨‍🎓</div>
+  <div style="flex:1;min-width:280px">
+    <h2>José Antônio <span>Gonçalves Júnior</span></h2>
+    <p><b>Curador & Criador do Projeto</b> • Estudante da <b>Escola Marieta Soares Teixeira</b></p>
+    <p style="font-style:italic">“Eu não criei um trabalho de escola. Eu criei um alerta. Porque quem entende o problema, nunca mais consegue ignorar.”</p>
+    <div class="tags"><span class="tag">📚 Marieta Soares Teixeira</span><span class="tag laranja">🌍 Curador - Vida Terrestre</span><span class="tag">🎤 Pitch & Storytelling</span><span class="tag">💡 ODS 15</span></div>
+  </div>
+  <button class="btn btn-laranja" onclick="mostrar('curador')">Minha História →</button>
+</div>
+
+<!-- MENU -->
+<div class="menu-section">
+  <h2>Escolha onde você quer ir 👇</h2>
+  <p>12 áreas completas, com argumentos inteligentes que vão te convencer de verdade.</p>
+  <div class="menu-grid">
+    <button class="card-btn g1" onclick="mostrar('inicio')"><span></span><b>INÍCIO</b><small>O resumo que te prende</small></button>
+    <button class="card-btn g2" onclick="mostrar('curador')"><span></span><b>MEU PERFIL</b><small>Quem é José Antônio?</small></button>
+    <button class="card-btn g1" onclick="mostrar('florestas')"><span></span><b>FLORESTAS</b><small>Os pulmões do mundo</small></button>
+    <button class="card-btn g3" onclick="mostrar('agua')"><span></span><b>ÁGUA E TERRA</b><small>Sem terra, sem água</small></button>
+    <button class="card-btn g4" onclick="mostrar('animais')"><span></span><b>ANIMAIS</b><small>Nenhum existe à toa</small></button>
+    <button class="card-btn g5" onclick="mostrar('desmatamento')"><span></span><b>DESMATAMENTO</b><small>O maior inimigo</small></button>
+    <button class="card-btn g6" onclick="mostrar('biodiversidade')"><span></span><b>BIODIVERSIDADE</b><small>A riqueza do Brasil</small></button>
+    <button class="card-btn g7" onclick="mostrar('solo')"><span></span><b>SOLO</b><small>Onde nasce sua comida</small></button>
+    <button class="card-btn g8" onclick="mostrar('povos')"><span></span><b>POVOS DA TERRA</b><small>Quem protege de verdade</small></button>
+    <button class="card-btn g9" onclick="mostrar('solucao')"><span></span><b>SOLUÇÕES</b><small>O que fazer agora</small></button>
+    <button class="card-btn g10" onclick="mostrar('pitch')"><span></span><b>MEU PITCH</b><small>Como vou apresentar</small></button>
+    <button class="card-btn g11" onclick="mostrar('manifesto')"><span></span><b>MANIFESTO</b><small>Minha promessa</small></button>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- INÍCIO -->
+<section id="inicio" class="pagina ativa">
+  <h2> Por que isso é problema SEU?</h2>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1200&q=80">
+  <p>Muita gente pensa: “Vida terrestre é coisa de biólogo, de quem mora na floresta”. <b>Está errado.</b> Vida terrestre é sobre o seu café da manhã, a água que você bebeu hoje e o ar que você está respirando agora.</p>
+  <div class="box-arg"><b>ARGUMENTO INTELIGENTE QUE NINGUÉM REBATE:</b><br>A Terra não precisa de nós para continuar existindo. Ela já existia bilhões de anos antes de nós. NÓS é que precisamos dela para existir. Destruir a Terra é como serrar o galho onde você está sentado.</div>
+  <p>Se o solo morrer, a comida acaba. Se a floresta acabar, a chuva acaba. Se os animais sumirem, o equilíbrio quebra. Não é exagero. É ciência.</p>
+  <div class="frase-grande">“Cuidar da terra não é ser bonzinho.<br>É ser inteligente.”</div>
+  <div class="lista-grid">
+    <div class="mini"><b> Florestas</b><p>Produzem oxigênio e seguram a chuva.</p></div>
+    <div class="mini"><b> Animais</b><p>Polinizam, limpam, equilibram.</p></div>
+    <div class="mini"><b> Solo</b><p>Produz 95% da nossa comida.</p></div>
+    <div class="mini"><b> Água</b><p>Nasce e é filtrada pela terra.</p></div>
+  </div>
+  <button class="btn-acao2" onclick="mostrar('florestas')">Continuar explorando →</button>
+</section>
+
+<!-- CURADOR -->
+<section id="curador" class="pagina">
+  <h2> Sobre Mim - O Curador</h2>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80">
+  <p><b>Nome:</b> José Antônio Gonçalves Júnior</p>
+  <p><b>Escola:</b> Escola Marieta Soares Teixeira</p>
+  <p><b>Projeto:</b> Vida Terrestre - ODS 15 da ONU</p>
+  <p><b>Função:</b> Curador, pesquisador e apresentador</p>
+  <div class="box-dado"><b>Por que eu escolhi esse tema?</b><br>Porque eu percebi que todo mundo fala “vamos cuidar do planeta”, mas quase ninguém entende de verdade o que está acontecendo. Eu quis criar um site onde qualquer pessoa, de 8 a 80 anos, entenda e sinta vontade de agir. Um site bonito, fácil e com argumentos que convencem.</div>
+  <h3>Minha missão</h3>
+  <p>1. Fazer minha escola entender a importância da vida terrestre.<br>2. Mostrar que cada atitude conta.<br>3. Provar que jovem também pode mudar o mundo.</p>
+  <div class="frase-grande">“Eu não quero só tirar nota boa.<br>Eu quero deixar uma marca.”</div>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar</button>
+</section>
+
+<!-- FLORESTAS -->
+<section id="florestas" class="pagina">
+  <h2> Florestas: Os pulmões do mundo</h2>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80">
+  <p>As florestas cobrem 31% da Terra. Parece pouco, mas é ali que vive 80% de todos os animais terrestres. É ali que nasce a chuva. É ali que o ar é limpo.</p>
+  <div class="box-arg"><b>ARGUMENTO APELATIVO:</b><br>Tirar uma floresta é como tirar um pulmão de uma pessoa e pedir para ela continuar correndo. Você viveria bem com meio pulmão? A Terra também não.</div>
+  <div class="box-dado"><b>DADO PODEROSO:</b> A Amazônia guarda tanto gás carbônico que, se ela for destruída, o aquecimento global vai acelerar de um jeito que nenhum país consegue segurar.</div>
+  <h3>As 3 florestas mais importantes do Brasil</h3>
+  <div class="lista-grid">
+    <div class="mini"><b> Amazônia</b><p>A maior do mundo. 60% no Brasil. O coração do planeta.</p></div>
+    <div class="mini"><b> Mata Atlântica</b><p>Só restam 12%. Quase perdemos para sempre.</p></div>
+    <div class="mini"><b> Cerrado</b><p>Berço das águas. Sem ele, o Brasil fica sem rios.</p></div>
+  </div>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar</button>
+</section>
+
+<!-- ÁGUA -->
+<section id="agua" class="pagina">
+  <h2> Sem terra, sem água</h2>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1200&q=80">
+  <p>A floresta faz chover. As árvores soltam vapor que vira nuvem. Sem árvore, não tem nuvem. Sem nuvem, não tem chuva. Sem chuva, não tem rio. Sem rio, não tem você.</p>
+  <div class="box-arg"><b>ARGUMENTO QUE CONVENCE QUALQUER UM:</b><br>Você consegue ficar 30 dias sem comer. Mas só 3 dias sem água. E a água que você bebe nasce na terra que está sendo destruída. Antes de dizer “isso não é meu problema”, lembre: sem água, não tem vida.</div>
+  <div class="box-alerta"><b> O QUE JÁ ESTÁ ACONTECENDO:</b> Várias cidades do Brasil já tiveram falta de água por causa do desmatamento. Não é futuro. É presente.</div>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar</button>
+</section>
+
+<!-- ANIMAIS -->
+<section id="animais" class="pagina">
+  <h2> Animais: Nenhum existe à toa</h2>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=1200&q=80">
+  <p>Cada animal tem um trabalho. Se um some, o trabalho fica sem fazer e tudo desanda.</p>
+  <div class="lista-grid">
+    <div class="mini"><b> Abelha</b><p>Poliniza 70% das frutas. Sem ela, sem comida.</p></div>
+    <div class="mini"><b> Onça-pintada</b><p>Controla outros animais e mantém o equilíbrio.</p></div>
+    <div class="mini"><b>🪱 Minhoca</b><p>Deixa o solo fofinho e pronto para plantar.</p></div>
+    <div class="mini"><b> Lobo-guará</b><p>Planta árvores espalhando sementes.</p></div>
+  </div>
+  <div class="box-arg"><b>ARGUMENTO EMOCIONAL:</b><br>Imagine ter que explicar para o seu filho que a arara-azul só existe em foto, porque a nossa geração não cuidou. Que herança a gente quer deixar? Fotos ou florestas vivas?</div>
+  <div class="box-alerta"><b>Mais de 1.000 espécies no Brasil estão ameaçadas de extinção.</b> Se elas sumirem, o dominó inteiro cai.</div>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar</button>
+</section>
+
+<!-- DESMATAMENTO -->
+<section id="desmatamento" class="pagina">
+  <h2> Desmatamento: O maior inimigo</h2>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1569163139394-de4e4f43e4e3?w=1200&q=80">
+  <p>Desmatar é derrubar a floresta para pasto, soja, madeira ou cidade. O problema não é usar a terra. O problema é usar sem cuidar e sem replantar.</p>
+  <div class="box-alerta"><b> DADO CHOCANTE PARA O PITCH:</b><br>A cada 1 minuto, o mundo perde 10 campos de futebol de floresta. Enquanto você lê essa frase, já perdemos mais um pedaço.</div>
+  <h3>O efeito dominó</h3>
+  <div class="timeline">
+    <div><b>1. Derruba a floresta</b><p>Animais perdem a casa.</p></div>
+    <div><b>2. Solo fica fraco</b><p>Sem raiz, a chuva leva o solo embora.</p></div>
+    <div><b>3. Chove menos</b><p>Sem árvore, sem nuvem.</p></div>
+    <div><b>4. Rios secam</b><p>Sem mata, o rio fica sujo e morre.</p></div>
+    <div><b>5. Planeta esquenta</b><p>Sem árvore para absorver o gás carbônico.</p></div>
+  </div>
+  <div class="box-arg"><b>ARGUMENTO INTELIGENTE:</b><br>Desmatar para ganhar dinheiro rápido é como vender os tijolos da sua própria casa para comprar comida. Na hora resolve, depois você fica sem casa. É um lucro burro.</div>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar</button>
+</section>
+
+<!-- BIODIVERSIDADE -->
+<section id="biodiversidade" class="pagina">
+  <h2> Biodiversidade: A riqueza do Brasil</h2>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=1200&q=80">
+  <p>Biodiversidade = variedade de vida. E o Brasil é o NÚMERO 1 do mundo nisso. Mais de 100 mil espécies de animais e 40 mil de plantas.</p>
+  <div class="box-arg"><b>ARGUMENTO DE ORGULHO:</b><br>O Brasil é o país mais rico do mundo em natureza. Deixar essa riqueza ser destruída é como ter ouro em casa e jogar no lixo. Quem é inteligente, protege o que tem de mais valioso.</div>
+  <p>Quanto mais variedade, mais forte é a natureza. É como um time: se só tiver atacante, perde. Precisa de goleiro, zagueiro, atacante. Na natureza é igual.</p>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar</button>
+</section>
+
+<!-- SOLO -->
+<section id="solo" class="pagina">
+  <h2> Solo: Onde nasce a sua comida</h2>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&q=80">
+  <p>95% de tudo que você come nasce no solo. Arroz, feijão, fruta, verdura. Sem solo saudável, não tem prato cheio.</p>
+  <div class="box-dado"><b>DADO QUE IMPRESSIONA:</b> Para formar só 1 cm de solo, a natureza leva até 100 anos. Uma queimada destrói em minutos o que a natureza levou um século para construir.</div>
+  <div class="box-arg"><b>PENSE COMIGO:</b><br>Se o solo morre, a comida acaba. Se a comida acaba, não tem dinheiro que compre. Quem cuida do solo está cuidando do prato de todo mundo.</div>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar</button>
+</section>
+
+<!-- POVOS -->
+<section id="povos" class="pagina">
+  <h2>👨‍👩 Povos que protegem a terra de verdade</h2>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1509099863732-ef4bff19e808?w=1200&q=80">
+  <p>Indígenas, quilombolas, agricultores e ribeirinhos vivem da terra e são os que mais a protegem.</p>
+  <div class="box-dado"><b>PROVA CIENTÍFICA:</b> Onde tem terra indígena, tem MENOS desmatamento. Isso já foi provado. Quem vive em harmonia com a terra sabe cuidar melhor dela do que quem só quer lucrar com ela.</div>
+  <p>Respeitar esses povos é proteger a floresta. Atacar esses povos é atacar a floresta.</p>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar</button>
+</section>
+
+<!-- SOLUÇÕES -->
+<section id="solucao" class="pagina">
+  <h2> O que a gente pode fazer AGORA?</h2>
+  <p>Não precisa esperar ser presidente ou cientista. Começa agora, na escola, em casa.</p>
+  <div class="lista-grid">
+    <div class="mini"><b> Na Escola Marieta Soares Teixeira</b><p>Reciclar, fazer horta, plantar árvore, economizar papel, espalhar este site.</p></div>
+    <div class="mini"><b> Em Casa</b><p>Separar o lixo, economizar água, não comprar madeira ilegal, plantar.</p></div>
+    <div class="mini"><b> Na Internet</b><p>Compartilhar, cobrar, conscientizar. Sua voz alcança mais gente que você imagina.</p></div>
+    <div class="mini"><b> No Mundo</b><p>Leis mais fortes, reflorestar, proteger animais, apoiar quem cuida.</p></div>
+  </div>
+  <div class="box-arg"><b>ARGUMENTO FINAL:</b><br>Muita gente acha que uma pessoa só não muda nada. Mas toda floresta começa com UMA semente. Você pode ser essa semente.</div>
+  <button class="btn-acao2" onclick="mostrar('manifesto')">Ler meu Manifesto 📢</button>
+</section>
+
+<!-- PITCH -->
+<section id="pitch" class="pagina">
+  <h2> Meu Pitch - Como vou apresentar</h2>
+  <p>Use esse roteiro de 3 a 5 minutos, igual na aula de Pitch e Storytelling.</p>
+  <div class="timeline">
+    <div><b>1. ABERTURA FORTE (15 seg)</b><p>“Você consegue ficar 3 dias sem água? Então por que você está deixando destruírem a terra que produz a sua água?”</p></div>
+    <div><b>2. DADO IMPACTANTE</b><p>“A cada minuto perdemos 10 campos de futebol de floresta.”</p></div>
+    <div><b>3. PROBLEMA</b><p>Desmatamento, animais em extinção, solo morrendo, rios secando.</p></div>
+    <div><b>4. SOLUÇÃO</b><p>“Eu criei este site, como aluno da Escola Marieta Soares Teixeira, para mostrar que qualquer pessoa pode ajudar.”</p></div>
+    <div><b>5. FECHAMENTO</b><p>“A Terra não precisa de nós. Nós precisamos dela. E ainda dá tempo de cuidar.”</p></div>
+  </div>
+  <div class="box-dado"><b>DICA DE STORYTELLING:</b> Conte a história de uma onça que perdeu sua casa. As pessoas esquecem números, mas nunca esquecem histórias.</div>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar</button>
+</section>
+
+<!-- MANIFESTO -->
+<section id="manifesto" class="pagina">
+  <h2> Manifesto</h2>
+  <p>Eu, <b>José Antônio Gonçalves Júnior</b>, estudante da <b>Escola Marieta Soares Teixeira</b>, me recuso a aceitar que a destruição da natureza seja normal.</p>
+  <p>Eu acredito que a minha geração pode ser a geração que virou o jogo.</p>
+  <p>Que plantou quando todos desmatavam.</p>
+  <p>Que cuidou quando todos ignoravam.</p>
+  <p>Que entendeu que <b>proteger a vida terrestre é proteger a nossa própria vida.</b></p>
+  <div class="frase-grande">“O futuro não é algo que a gente espera.<br>É algo que a gente planta.”<br><span style="font-size:16px;font-family:Poppins">— José Antônio Gonçalves Júnior</span></div>
+  <div class="galeria">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800&q=80">
+  </div>
+  <button class="btn-voltar" onclick="mostrar('inicio')">⬅ Voltar para o Início</button>
+</section>
+
+</div>
+
+<footer>
+  <h3> VIDA TERRESTRE</h3>
+  <p>Projeto criado e curado por <b>José Antônio Gonçalves Júnior</b><br>Escola Marieta Soares Teixeira • ODS 15 • 2026<br>“O futuro não é algo que a gente espera. É algo que a gente planta.”</p>
+</footer>
+
+<script>
+function mostrar(id){
+  document.querySelectorAll('section.pagina').forEach(s=>s.classList.remove('ativa'));
+  const el=document.getElementById(id);
+  if(el){el.classList.add('ativa'); el.scrollIntoView({behavior:'smooth',block:'start'});}
+}
+</script>
+</body>
+</html>
